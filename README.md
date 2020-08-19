@@ -49,3 +49,24 @@ sudo apt upgrade
 ```
 sudo apt install openvswitch-switch
 ```
+
+## Installing LXC
+```
+sudo apt-get install lxc
+```
+
+```
+sudo apt-get update -y
+```
+
+```
+apt install python3-pip
+```
+
+```
+sudo apt-get install -y python3-lxc
+```
+
+```
+pip3 install docker
+```
