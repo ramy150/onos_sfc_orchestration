@@ -16,5 +16,3 @@
 
 ### Activate "Proxy ARP/NDP" Application
 
-### Activate "Reactive Forwarding" Application
-
