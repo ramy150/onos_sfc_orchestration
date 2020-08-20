@@ -11,9 +11,7 @@ def create_ovs(ovs_name):
 
 
 def create_sff(container_name, ovs_name, ip_address_1, port_1, ip_address_2, port_2):
-    basic_cmd = 'lxc-copy -n lxc-ovs -N {}'.format(container_name)
-    os.system(basic_cmd)
-    time.sleep(2)
+    print("Creating the static SFF in container: {}".format(container_name))
     if lxc_driver.create_container(container_name):
         lxc_driver.modify_configuration_bridge(container_name, '2')
         lxc_driver.container_bridge_ovs(container_name, str(ovs_name), str(port_1))
@@ -78,10 +76,10 @@ def attach_ovs_to_sdn(ovs_name):
     os.system(basic_cmd)
 
 
-def create_lxc_container(container_name, ovs_name, ovs_port, ip_address):
+def create_lxc_container(container_name, ovs_name, ovs_port, ip_address, diff='5'):
     print("Creating the container: {}".format(container_name))
     if lxc_driver.create_container(container_name):
-        lxc_driver.modify_configuration_bridge(container_name)
+        lxc_driver.modify_configuration_bridge(container_name, diff)
         lxc_driver.container_bridge_ovs(container_name, ovs_name, ovs_port)
         time.sleep(5)
         if not lxc_driver.start_container(container_name):

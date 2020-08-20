@@ -112,7 +112,7 @@ def modify_configuration_bridge(container_name, diff='5'):
                         if line2 != line:
                             output_file.write(line2)
                         else:
-                            output_file.write('\nlxc.net.0.link =')
+                            output_file.write('lxc.net.0.link =')
                             output_file.write(' ')
                             output_file.write('br{}'.format(container_name))
                             output_file.write('\n')
@@ -122,7 +122,8 @@ def modify_configuration_bridge(container_name, diff='5'):
                         output_file.write(' ')
                         output_file.write('br{}{}'.format(diff, container_name))
                         output_file.write('\nlxc.net.1.flags = up')
-                        output_file.write('\nlxc.net.1.hwaddr = 00:16:3e:7a:87:16')
+                        output_file.write('\nlxc.net.1.hwaddr = 00:16:3e:ed:0d:5b')
+                        output_file.write('\n')
 
             basic_cmd = 'rm {}{}/config'.format(LXC_PATH, container_name)
             os.system(basic_cmd)
